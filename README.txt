@@ -1,5 +1,6 @@
 This Project was built with React and material design bootstrap for the UI( read their terms of use at mdbootstrap.com).
-Ensure you have an active internet connection before running it as some of the assets and dependencies need to be loaded from the internet. 
+Ensure you have an active internet connection before running it as some of the assets and dependencies need to be loaded from the internet.
+Run the index.html file after downloading to load the website
 
 
 Material Design for Bootstrap
