@@ -1,3 +1,7 @@
+This Project was built with React and material design bootstrap for the UI( read their terms of use at mdbootstrap.com).
+Ensure you have an active internet connection before running it as some of the assets and dependencies need to be loaded from the internet. 
+
+
 Material Design for Bootstrap
 
 Version: MDB Free 4.8.2
