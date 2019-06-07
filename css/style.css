@@ -1,0 +1,182 @@
+/*to disable scrolling on desktop screen giving the fullscreen effect*/
+html{
+    overflow-y: hidden;
+}
+
+/*the entire app height*/
+#app{
+    height: 100%;
+}
+
+/*sets dimensions for the brand logo/img*/
+#brandImg{
+    width: :100px;
+    height: 50px;
+}
+nav:first-child{
+/*    width: :150px;*/
+    height: 70px;
+
+}
+/*home class is used to style other components apart from home page*/
+.home{
+    margin-top: 60px;
+    background: black;
+    color: white;
+    height: 600px;
+/*    width: 100%;*/
+}
+
+/*colore of the nav links and link at the homepage columns*/
+.home a:link{
+    color: white;
+}
+
+.home a:visited{
+    color: white;
+
+}
+
+.home a:hover{
+    color:greenyellow;
+}
+
+nav ul li {
+    margin-left: 7px;
+}
+
+/*sets background image for about page*/
+.about{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.unsplash.com/6/blurred_lines.jpeg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
+    background-position: center;
+    background-size: cover;
+}
+
+/*sets background image for contact page*/
+.contact{
+    background: url(https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80);
+    background-position: center;
+    background-size: cover;
+}
+
+/*sets the width of the form*/
+form input, form textarea{
+    width: 80%;
+}
+
+/*the red asterix on the compulsory form fields*/
+star{
+    color: red;
+}
+
+/*animation*/
+@keyframes fadeIn { 
+  from { opacity: 0; } 
+}
+
+/*sets animation for any element carrying the class */
+.fade-in{
+    animation: fadeIn 1s infinite alternate;
+}
+
+/*selects the text in the home page*/
+.cen{
+    margin-top: 100%;
+}
+
+/*the below classes sets individual background and other properties for the homepage columns followed by hover effects*/
+.first-col{
+    background:  url(https://themify.me/demo/themes/ultra-horizontal/files/2019/01/home-about-bg.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    
+}
+
+.first-col:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://themify.me/demo/themes/ultra-horizontal/files/2019/01/home-about-bg.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+
+}
+
+.second-col{
+    background: url(https://blog.jiji.ng/wp-content/uploads/2018/04/chidinma-1-819x1024.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+
+}
+
+.second-col:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://blog.jiji.ng/wp-content/uploads/2018/04/chidinma-1-819x1024.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+
+}
+
+.third-col{
+    background: url(https://i.pinimg.com/originals/84/d5/e9/84d5e986da4a94a648a4b3692f386e08.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+ 
+}
+
+.third-col:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://i.pinimg.com/originals/84/d5/e9/84d5e986da4a94a648a4b3692f386e08.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+ 
+}
+
+.fourth-col{
+    background: url(http://www.studentworldonline.com/userfiles/images/fine%20art%20artist.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+ 
+}
+
+.fourth-col:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(http://www.studentworldonline.com/userfiles/images/fine%20art%20artist.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+ 
+}
+.fifth-col{
+    background: url(https://www.winchester.ac.uk/media/content-assets/study/undergraduate-courses/Creative-Writing-v3-2.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+ 
+}
+.fifth-col:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://www.winchester.ac.uk/media/content-assets/study/undergraduate-courses/Creative-Writing-v3-2.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+ 
+}
+
+/*Media Queries*/
+/*to enable some specific responsive behaviours*/
+@media(max-width:991px){
+    html{
+        overflow-y: visible;
+    }
+    
+/*    reduces the height of the columns on home and other pages*/
+    .home{
+        height: 550px;
+    }
+    
+/*    reduces the top margin for text on the home columns on smaller screens*/
+    .cen{
+        margin-top: 50%;
+    }
+}

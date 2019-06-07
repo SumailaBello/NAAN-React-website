@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>NAAN</title>
+    <!--REACT-->
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Start your project here-->
+  <div id="app"></div>
+  <!-- Start your project here-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  
+<!--  REACT COMPONENTS-->
+  <script type="text/babel">
+
+    //Navbar component
+    var Navbar = React.createClass({
+        propTypes: {
+            brand: React.PropTypes.string.isRequired
+        },
+        
+        getDefaultProps : function(){
+            return {
+                
+                brand: "NAAN",
+                navBarGradient: "blue"
+                
+        }
+        
+    },
+        render: function(){
+            if(this.props.navBarGradient == "purple"){
+                var gradientColor = "navbar navbar-expand-lg navbar-dark purple-gradient fixed-top scrolling-navbar" 
+            } else if(this.props.navBarGradient == "blue"){
+                var gradientColor = "navbar navbar-expand-lg navbar-dark blue-gradient fixed-top scrolling-navbar"
+                }
+            
+            var homeActive = "";
+            var aboutActive = "";
+            var contactActive = "";
+            if(this.props.page == "Home"){
+                homeActive = "nav-item active";
+                console.log(this.props.page)
+            }
+            else if(this.props.page == "About"){
+                aboutActive = "nav-item active";
+                console.log(this.props.page)
+            }
+            else if(this.props.page == "Contact"){
+                contactActive = "nav-item active"
+                console.log(this.props.page)
+            }
+
+            return(
+                <div>
+                
+                <nav className={gradientColor} >
+
+                  
+                  <a className="navbar-brand font-weight-bold" href="#">{this.props.brand} <img id ="brandImg" src="https://www.graphicsprings.com/filestorage/stencils/9eb54541d4b4669a0ebc65ba7c876707.png?width=500&height=500" alt="logo"/></a>
+
+                  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div className="collapse navbar-collapse blue-gradient" id="basicExampleNav">
+
+                    
+                    <ul className="navbar-nav ml-auto font-weight-bold">
+                      <li className={homeActive}>
+                        <a className="nav-link" onClick={this.props.homeClick} href="#">Home
+                          <span className="sr-only">(current)</span>
+                        </a>
+                      </li>
+                      <li className={aboutActive}>
+                        <a className="nav-link" onClick={this.props.aboutClick} href="#">About Us</a>
+                      </li>
+                      <li className={contactActive}>
+                        <a className="nav-link" onClick={this.props.contactClick} href="#">Contact</a>
+                      </li>
+
+                      <li className=" dropdown">
+                        <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">More</a>
+                        <div className="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                          <a className="dropdown-item" href="#">News + Events</a>
+                          <a className="dropdown-item" href="#">Student Work</a>
+                          <a className="dropdown-item" href="#">Disciplines</a>
+                        </div>
+                      </li>
+                      
+                    </ul>
+                    
+                    <div className="ml-3">
+                          <a className="fade-in btn aqua-gradient btn-rounded text-white" href="#">Get Started</a>
+                    </div>
+
+
+
+                    <form className="form-inline ml-3">
+                      <div className="md-form my-0">
+                        <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+                      </div>
+                    </form>
+                  </div>
+
+                </nav>
+            
+      </div>
+            
+            )
+        }
+        
+    });
+
+
+    //Home Page Component
+    var HomePage = React.createClass({
+        propTypes: {
+            Heading: React.PropTypes.string,
+            Text: React.PropTypes.string
+            
+        },
+        
+        getDefaultProps: function(){
+            return{
+                Heading: "Welcome",
+                Text: "Welcome Onboard."
+            }
+        },
+        
+        render: function(){
+            
+            return(
+                    <div className = "home text-black purple-gradient container-fluid">
+                        <div className="row h-100 text-uppercase">
+                           <div className="col-xs-12 col-lg first-col text-center">
+                               <div className="cen">
+                                <h3 className="" onClick={this.props.aboutClick}>{this.props.Heading}</h3>
+                                <p className="">{this.props.Text}</p>
+                              </div>
+                           </div>
+                           
+                           <div className="col-xs-12 col-lg second-col text-center">
+                                <h3 className="cen"><a href="http://www.google.com">Fashion Design</a></h3>
+
+                           </div>
+                           
+                           <div className="col-xs-12 col-lg third-col text-center">
+                               <h3 className="cen"><a href="http://www.google.com">Interior Design</a></h3>
+
+                           </div>
+                           
+                            <div className="col-xs-12 col-lg fourth-col text-center">
+                                <h3 className="cen"><a href="http://www.google.com">Fine Arts</a></h3>
+                            </div>
+                                
+                            <div className="col-xs-12 col-lg fifth-col text-center">
+                                <h3 className="cen"><a href="http://www.google.com">Creative Writing</a></h3>
+                            </div>
+                         </div>                                                         
+                    </div>
+            )
+        }
+    });
+
+
+        //AboutPage Component
+        var AboutPage = React.createClass({
+            getDefaultProps: function(){
+                return{
+                    Heading: "About Us",
+                    Text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                }
+            },
+            render: function(){
+                return(
+                    <div className = "home p-5 container-fluid about">
+                        <div className = "row">
+                           <div className ="col-xs-12 col-lg-6 text-center">
+                            <h1 className = "font-weight-bold">{this.props.Heading}</h1>
+                            <hr className="bg-light font-weight-bold"/>
+                            <h4 className="font-weight-bold"><em>Passion Led Us Here</em></h4>
+                            
+                            <p className="font-weight-bold">{this.props.Text}</p>
+                          </div>
+                          <div className ="col-xs-12 col-lg-6 text-center">
+                            <img className="img-fluid" src="https://themify.me/demo/themes/ultra-education/files/2018/08/discussion.jpg" alt=""/>
+                          </div>
+                        </div>
+                    </div>
+                )
+            }
+        });
+        
+
+        //ContactPage Component
+        var ContactPage = React.createClass({
+            handleSendClick: function(event){
+                event.preventDefault;
+                const name = this._name.value;
+                alert("Thanks for reaching out " + name + "!")
+                console.log(name)
+            },
+//send button was placed outside of form element to stop the App from reloading on click caused by MDb framework
+            render: function(){
+                return(
+                    <div className = "home text-dark p-5 container-fluid contact">
+                        <div className = "row">
+                            <div className="col">
+                                <h1 className="text-center">Contact Us</h1>
+                                <p className="font-weight-bold text-center">Say hi to us</p>
+                                
+                                <form action="" method="post" className="contact-form  contact-columns-mb">
+                                  <label className="w-100"> Your Name <star>*</star> <br/>
+                                      <input type="text" className="contact-input" ref={input => this._name = input}/>
+                                  </label>
+                                  <label className="w-100"> Your Email <star>*</star> <br />
+                                      <input type="email" className="contact-input" placeholder="example@example.com"/>
+                                  </label>
+                                  <label className="w-100"> Subject<br />
+                                      <input type="text" className="contact-input" />
+                                  </label>
+                                  <label className="w-100"> Your Message <star>*</star> <br />
+                                      <textarea name="" id="" cols="30" rows="5" className="contact-input"></textarea>
+                                  </label>
+                               </form>
+                                <button className="btn btn-primary btn-sm" onClick={this.handleSendClick}>Send</button>
+
+                            </div>
+                            <div className="col">
+                                <img className="img-fluid" src="https://themify.me/demo/themes/ultra-photography/files/2018/05/man-in-front-of-computer.jpg" alt=""/>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+        });
+
+        //Footer display button component combined with the MDb modal used as footer
+        var FooterButton = React.createClass({
+            
+            render: function(){
+                return (
+                    <div className="fixed-bottom text-center">
+                        <button type="button" className="btn btn-sm btn-primary waves-effect waves-light" data-toggle="modal" data-target="#frameModalBottom" data-backdrop="false">&and;</button>
+                        
+                        <div className="modal fade bottom" id="frameModalBottom" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel"
+                          aria-hidden="true">
+
+                          <div className="modal-dialog modal-frame modal-bottom" role="document">
+
+
+                            <div className="modal-content">
+                              <div className="modal-body unique-color-dark">
+                           
+                            <footer className="page-footer font-small unique-color-dark">
+
+                              <div >
+                               <a type="button" className="btn btn-danger btn-sm waves-effect" data-dismiss="modal">&Chi;</a>
+                                <div className="container" style={{background: "#6351ce"}}>
+
+                              
+                                  <div className="row py-4 d-flex align-items-center">
+
+                                    
+                                    <div className="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                                      <h6 className="mb-0">Get connected with us on social networks!</h6>
+                                    </div>
+                                    
+
+                                    
+                                    <div className="col-md-6 col-lg-7 text-center text-md-right">
+
+                                      
+                                      <a className="fb-ic">
+                                        <i className="fab fa-facebook-f white-text mr-4"> </i>
+                                      </a>
+                                     
+                                      <a className="tw-ic">
+                                        <i className="fab fa-twitter white-text mr-4"> </i>
+                                      </a>
+                                     
+                                      <a className="gplus-ic">
+                                        <i className="fab fa-google-plus-g white-text mr-4"> </i>
+                                      </a>
+                                     
+                                      <a className="li-ic">
+                                        <i className = "fab fa-linkedin-in white-text mr-4"> </i>
+                                      </a>
+                                 
+                                      <a className = "ins-ic">
+                                        <i className = "fab fa-instagram white-text"> </i>
+                                      </a>
+
+                                    </div>
+                                   
+
+                                  </div>
+                             
+
+                                </div>
+                 
+                              
+                              <div className = "container text-center text-md-left mt-5">
+
+                            
+                                <div className = "row mt-3">
+
+                                 
+                                  <div className = "col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+                               
+                                    <h6 className = "text-uppercase font-weight-bold">Fashion Academy</h6>
+                                    <hr className = "deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: 60 + "px"}} />
+                                    <p>Lorem ipsum dolor sit amet,
+                                      consectetur
+                                      adipisicing elit.Lorem ipsum dolor sit amet,
+                                      consectetur
+                                      adipisicing elit.</p>
+
+                                  </div>
+                                  
+
+                                  
+                                  <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                              
+                                    <h6 className="text-uppercase font-weight-bold">Top Courses</h6>
+                                    <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: 60 + "px"}} />
+                                    <p>
+                                      <a href="#!">Fashion Design</a>
+                                    </p>
+                                    <p>
+                                      <a href="#!">Fine Arts</a>
+                                    </p>
+
+                                  </div>
+                                  
+
+                                  
+                                  <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                              
+                                    <h6 className="text-uppercase font-weight-bold">Useful links</h6>
+                                    <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: 60 + "px"}} />
+                                    <p>
+                                      <a href="#!">Your Account</a>
+                                    </p>
+                                    <p>
+                                      <a href="#!">Become an Affiliate</a>
+                                    </p>
+                                    <p>
+                                      <a href="#!">Tuition Fees</a>
+                                    </p>
+                                    <p>
+                                      <a href="#!">Help</a>
+                                    </p>
+
+                                  </div>
+                                  
+
+                                  
+                                  <div className ="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                              
+                                    <h6 className ="text-uppercase font-weight-bold">Contact</h6>
+                                    <hr className ="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: 60 + "px"}} />
+                                    <p>
+                                      <i className ="fas fa-home mr-3"></i> ABUJA, FCT 10012, NG</p>
+                                    <p>
+                                      <i className ="fas fa-envelope mr-3"></i> info@example.com</p>
+                                    <p>
+                                      <i className ="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                                    <p>
+                                      <i className ="fas fa-print mr-3"></i> + 01 234 567 89</p>
+
+                                  </div>
+     
+
+                                </div>
+   
+
+                              </div>
+ 
+
+ 
+                              <div className="footer-copyright text-center py-3">© 2018 Copyright:
+                                <a href="https://mdbootstrap.com/education/bootstrap/"> NAAN.com</a>
+                              </div>
+                                 </div>
+                            </footer> 
+                            </div>                             
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+
+                )
+            }
+        })
+
+
+        //Footer Component
+        var Footer = React.createClass({
+            render: function(){
+                return(
+                    <div>
+                        
+                    </div>
+                    
+                )
+            }
+            
+            
+            
+        })
+
+
+       //Main app component
+        var App = React.createClass({
+            getInitialState: function(){
+                return {
+                    page: "Home"
+                }
+                            
+            },
+            
+            handleHomeClick: function(){
+                this.setState({
+                    page: "Home"
+                })
+            },
+            
+            handleAboutClick: function(){
+                this.setState({
+                    page: "About"
+                })
+            },
+            
+            handleContactClick: function(){
+                this.setState({
+                    page: "Contact"
+                })
+            },
+                        
+            render: function(){
+                if(this.state.page == "Home"){
+                    var Home = <HomePage 
+                                aboutClick = {this.handleAboutClick} />
+                        //we passed in the about click prop above so we can access it from this component
+                    var footerButton = <FooterButton />
+                }
+                                
+                else if(this.state.page == "About"){
+                    var About = <AboutPage/>
+                    var footerButton = <FooterButton />
+                }
+                
+                else if(this.state.page == "Contact"){
+                    var Contact = <ContactPage/>
+                    var footerButton = <FooterButton />
+                }
+                
+                else if(this.state.page == "Footer"){
+                    var Home = <HomePage 
+                                aboutClick = {this.handleAboutClick} />
+                    var footer = <Footer />
+                }
+                
+                return(
+                    <div>
+                        <Navbar 
+                        page = {this.state.page}
+                        homeClick = {this.handleHomeClick}
+                        aboutClick = {this.handleAboutClick}
+                        contactClick = {this.handleContactClick} />
+                        {Home}
+                        {About}
+                        {Contact}
+                        {footer}
+                        {footerButton}
+                                                
+                    </div>
+                
+                
+                ) 
+            }
+        });
+    
+    ReactDOM.render(
+        <App />,
+        document.getElementById('app')
+    );
+    
+</script>
+</body>
+
+</html>
